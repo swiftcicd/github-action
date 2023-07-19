@@ -4,8 +4,8 @@ const core = require('@actions/core');
 const exe = `${__dirname}/main.sh`
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
-const packagePath = `${workspace}/${packagePathInput}`
-const command = `PACKAGE_PATH=${packagePath} ${exe}`
+const packagePath = `'${workspace}/${packagePathInput}'`
+const command = `PACKAGE_PATH=${packagePath}; ${exe}`
 
 try {
     console.log(`__dirname: ${__dirname}`);
