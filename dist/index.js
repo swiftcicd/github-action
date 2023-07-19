@@ -2883,7 +2883,7 @@ var external_child_process_default = /*#__PURE__*/__nccwpck_require__.n(external
 
 const core = __nccwpck_require__(24);
 
-const exe = __nccwpck_require__.ab + "main.sh"
+const exe = `.${__dirname}/main.sh`
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
 const packagePath = `${workspace}/${packagePathInput}`

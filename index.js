@@ -1,7 +1,7 @@
 import child_process from 'child_process';
 const core = require('@actions/core');
 
-const exe = `${__dirname}/main.sh`
+const exe = `.${__dirname}/main.sh`
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
 const packagePath = `${workspace}/${packagePathInput}`
