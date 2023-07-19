@@ -1,7 +1,7 @@
 import child_process from 'child_process';
 const core = require('@actions/core');
 
-const exe = `.${__dirname}/main.sh`
+const exe = `${__dirname}/main.sh`
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
 const packagePath = `${workspace}/${packagePathInput}`
@@ -14,7 +14,7 @@ try {
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
     console.log(`command: ${command}`);
-    child_process.execFileSync(command, {stdio: 'inherit'});
+    child_process.execFileSync(exe, {stdio: 'inherit'});
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);

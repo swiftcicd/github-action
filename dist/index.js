@@ -2883,7 +2883,7 @@ var external_child_process_default = /*#__PURE__*/__nccwpck_require__.n(external
 
 const core = __nccwpck_require__(24);
 
-const exe = `.${__dirname}/main.sh`
+const exe = __nccwpck_require__.ab + "main.sh"
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
 const packagePath = `${workspace}/${packagePathInput}`
@@ -2896,7 +2896,7 @@ try {
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
     console.log(`command: ${command}`);
-    external_child_process_default().execFileSync(command, {stdio: 'inherit'});
+    external_child_process_default().execFileSync(__nccwpck_require__.ab + "main.sh", {stdio: 'inherit'});
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);
