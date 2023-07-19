@@ -59,10 +59,12 @@ var external_child_process_default = /*#__PURE__*/__nccwpck_require__.n(external
 ;// CONCATENATED MODULE: ./index.js
 
 
-const exe = 'dist/main.sh';
+const exe = 'file://dist/main.sh';
 
 try {
+    console.log(`start`);
     external_child_process_default().execFileSync(exe, {stdio: 'inherit'});
+    console.log(`finish`);
 } catch (e) {
     process.exit(e.status);
 }
