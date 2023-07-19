@@ -66,6 +66,7 @@ try {
     external_child_process_default().execFileSync(exe, {stdio: 'inherit'});
     console.log(`finish`);
 } catch (e) {
+    console.log(`failure ${e.message}`);
     process.exit(e.status);
 }
 
