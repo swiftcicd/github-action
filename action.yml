@@ -1,0 +1,11 @@
+name: 'SwiftCICD'
+description: 'Run SwiftCICD'
+inputs:
+  package-path:
+    description: 'Path to CICD package'
+    required: false
+    default: '.github/workflows/cicd'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
