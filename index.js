@@ -12,10 +12,7 @@ try {
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
     console.log(`command: ${command}`);
-
-//    console.log(`spawning ${exe}`);
-//    child_process.execFileSync(exe, {stdio: 'inherit'});
-//    console.log(`done`);
+    child_process.execFileSync(command, {stdio: 'inherit'});
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);
