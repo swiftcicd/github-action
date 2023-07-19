@@ -4,8 +4,8 @@ const core = require('@actions/core');
 const exe = `${__dirname}/main.sh`
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
-const packagePath = `'${workspace}/${packagePathInput}'`
-const command = `PACKAGE_PATH=${packagePath}; ${exe}`
+const packagePath = `${workspace}/${packagePathInput}`
+//const command = `PACKAGE_PATH=${packagePath}; ${exe}`
 
 try {
     console.log(`__dirname: ${__dirname}`);
@@ -13,8 +13,17 @@ try {
     console.log(`exe: ${exe}`);
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
-    console.log(`command: ${command}`);
-    child_process.execFileSync(exe, {stdio: 'inherit', env: { ...process.env, PACKAGE_PATH: packagePath}});
+//    console.log(`command: ${command}`);
+    child_process.execFileSync(
+        exe,
+        {
+            stdio: 'inherit',
+            env: {
+                ...process.env,
+                PACKAGE_PATH: packagePath
+            }
+        }
+    );
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);
