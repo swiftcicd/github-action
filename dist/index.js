@@ -2887,7 +2887,7 @@ const exe = __nccwpck_require__.ab + "main.sh"
 const workspace = process.env.GITHUB_WORKSPACE;
 const packagePathInput = core.getInput('package-path');
 const packagePath = `${workspace}/${packagePathInput}`
-const command = `PACKAGE_PATH=${packagePath} ${exe}`
+const command = `"PACKAGE_PATH=${packagePath} ${exe}"`
 
 try {
     console.log(`exe: ${exe}`);
