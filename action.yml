@@ -2,9 +2,11 @@ name: 'SwiftCICD'
 description: 'Run SwiftCICD'
 inputs:
   package-path:
-    description: 'Path to CICD package'
-    required: false
-    default: '.github/workflows/cicd'
+    description: 'Path to the directory containing the Package.swift which defines your CICD executable target.'
+    required: true
+  github-token:
+    description: 'Your GitHub token is needed in order to interact with the GitHub API on your behalf. Use: ${{ secrets.GITHUB_TOKEN }}'
+    required: true
 
 runs:
   using: 'node16'
