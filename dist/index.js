@@ -1,7 +1,45 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The require scope
-/******/ 	var __nccwpck_require__ = {};
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 450:
+/***/ ((module) => {
+
+module.exports = eval("require")("@actions/core");
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nccwpck_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		var threw = true;
+/******/ 		try {
+/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
+/******/ 			threw = false;
+/******/ 		} finally {
+/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 		}
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/make namespace object */
@@ -21,6 +59,9 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
@@ -28,14 +69,19 @@ __nccwpck_require__.r(__webpack_exports__);
 const external_child_process_namespaceObject = require("child_process");
 ;// CONCATENATED MODULE: ./index.js
 
+const core = __nccwpck_require__(450);
 
-//const exe = '${GITHUB_WORKSPACE}/dist/main.sh';
+const exe = __nccwpck_require__.ab + "main.sh"
 const workspace = process.env.GITHUB_WORKSPACE;
+const packagePathInput = core.getInput('package-path');
+const packagePath = `${workspace}/${packagePathInput}`
+const command = `PACKAGE_PATH=${packagePath} ${exe}`
 
 try {
-    console.log(__filename);
-    console.log(__dirname);
-    console.log(workspace);
+    console.log(`exe: ${exe}`);
+    console.log(`packagePathInput: ${packagePathInput}`);
+    console.log(`packagePath: ${packagePath}`);
+    console.log(`command: ${command}`);
 
 //    console.log(`spawning ${exe}`);
 //    child_process.execFileSync(exe, {stdio: 'inherit'});
@@ -44,6 +90,8 @@ try {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);
 }
+
+})();
 
 module.exports = __webpack_exports__;
 /******/ })()
