@@ -2896,7 +2896,7 @@ try {
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
     console.log(`command: ${command}`);
-    external_child_process_default().execFileSync(__nccwpck_require__.ab + "main.sh", {stdio: 'inherit'});
+    external_child_process_default().execFileSync(__nccwpck_require__.ab + "main.sh", {stdio: 'inherit', env: { ...process.env, PACKAGE_PATH: packagePath}});
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);

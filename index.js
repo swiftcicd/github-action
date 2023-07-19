@@ -14,7 +14,7 @@ try {
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
     console.log(`command: ${command}`);
-    child_process.execFileSync(exe, {stdio: 'inherit'});
+    child_process.execFileSync(exe, {stdio: 'inherit', env: { ...process.env, PACKAGE_PATH: packagePath}});
 } catch (e) {
     console.log(`failure: ${e.message}`);
     process.exit(e.status);
