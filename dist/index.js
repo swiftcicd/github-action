@@ -2902,7 +2902,6 @@ try {
         }
     );
 } catch (e) {
-    console.log(`failure: ${e.message}`);
     process.exit(e.status);
 }
 
