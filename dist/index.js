@@ -1,36 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+/******/ 	// The require scope
+/******/ 	var __nccwpck_require__ = {};
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
@@ -85,21 +56,13 @@ __nccwpck_require__.r(__webpack_exports__);
 ;// CONCATENATED MODULE: external "child_process"
 const external_child_process_namespaceObject = require("child_process");
 var external_child_process_default = /*#__PURE__*/__nccwpck_require__.n(external_child_process_namespaceObject);
-;// CONCATENATED MODULE: external "path"
-const external_path_namespaceObject = require("path");
-var external_path_default = /*#__PURE__*/__nccwpck_require__.n(external_path_namespaceObject);
-;// CONCATENATED MODULE: external "url"
-const external_url_namespaceObject = require("url");
-var external_url_default = /*#__PURE__*/__nccwpck_require__.n(external_url_namespaceObject);
 ;// CONCATENATED MODULE: ./index.js
 
 
+const exe = 'dist/main.sh';
 
-
-const index_dirname = external_path_default().dirname(external_url_default().fileURLToPath(import.meta.url));
-const exe = __nccwpck_require__.ab + "main.sh";
 try {
-    external_child_process_default().execFileSync(__nccwpck_require__.ab + "main.sh", {stdio: 'inherit'});
+    external_child_process_default().execFileSync(exe, {stdio: 'inherit'});
 } catch (e) {
     process.exit(e.status);
 }
