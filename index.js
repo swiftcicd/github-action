@@ -8,6 +8,8 @@ const packagePath = `${workspace}/${packagePathInput}`
 const command = `"PACKAGE_PATH=${packagePath}; ${exe}"`
 
 try {
+    console.log(`__dirname: ${__dirname}`);
+    console.log(`__filename: ${__filename}`);
     console.log(`exe: ${exe}`);
     console.log(`packagePathInput: ${packagePathInput}`);
     console.log(`packagePath: ${packagePath}`);
