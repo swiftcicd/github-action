@@ -15,8 +15,7 @@ try {
             env: {
                 ...process.env,
                 PACKAGE_PATH: packagePath,
-                GITHUB_TOKEN: githubToken,
-		SWIFT_CICD_CI: true
+                GITHUB_TOKEN: githubToken
             }
         }
     );

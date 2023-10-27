@@ -2,4 +2,4 @@
 set -euxo pipefail
 
 echo "::group::Swift Run"
-swift run --package-path $PACKAGE_PATH
+SWIFT_CICD_CI=true swift run --package-path $PACKAGE_PATH
